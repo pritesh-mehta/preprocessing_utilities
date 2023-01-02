@@ -14,7 +14,7 @@ def whiten(data, mask_data=None):
     if mask_data is None:
         masked_data = data
     else: 
-        mask_data = np.squeeze(mask_data.astype(int))
+        mask_data = np.squeeze(np.round(mask_data))
         masked_data = np.multiply(data, mask_data)
         masked_data[masked_data == 0] = np.nan
 
