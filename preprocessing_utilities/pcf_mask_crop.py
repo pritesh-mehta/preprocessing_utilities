@@ -17,7 +17,7 @@ def pcf_mask_crop_dir(image_dir, mask_dir, output_dir, border=(5, 5, 0), extensi
     for mask_path in mask_paths:
         mask_name, mask_nii, mask_data = nutil.load(mask_path)
         print("Processing:", mask_name)
-        mask_data = mask_data.astype(int)
+        mask_data = np.round(mask_data).astype(int)
         
         # get mask voxel spacing information
         hdr = mask_nii.header
